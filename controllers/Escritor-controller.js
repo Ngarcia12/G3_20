@@ -30,15 +30,15 @@ LibroController.getAll = (req, res, next) => {
 
 
 EscritorController.getOne = (req, res, next) => {
-    let codigolibro = req.body.codigolibro
-    console.log(codigolibro)
+    let numeroescritor = req.body.numeroescritor
+    console.log(numeroescritor)
 
-    EscritorModel.getOne(codigolibro, (err, rows) => {
+    EscritorModel.getOne(numeroescritor, (err, rows) => {
         console.log(err, '---', rows)
         if (err)
         {
             let locals = {
-                title :  `Error al buscar el escritor con el codigo: ${codigolibro}`,
+                title :  `Error al buscar el escritor con el codigo: ${numeroescritor}`,
                 description : 'Error de Sintaxis SQL',
                 error : err
             }
@@ -56,22 +56,22 @@ EscritorController.getOne = (req, res, next) => {
 
 
 EscritorController.post = (req, res, next) => {
-    let libro = {
-        codigolibro : req.body.codigolibro,
-        nombrelibro : req.body.nombrelibro,
+    let escritor = {
+        numeroescritor : req.body.numeroescritor,
         nombreescritor : req.body.nombreescritor,
-        fechapublicacion : req.body.fechapublicacion,
-        isbn : req.body.isbn,
-        precio : req.body.precio,
-        editorial : req.body.editorial
+        apellidosescritor : req.body.apellidosescritor,
+        fechanacimiento : req.body.fechanacimiento,
+        nacionalidad : req.body.nacionalidad,
+        cantidadlibrosescritos : req.body.cantidadlibrosescritos,
+        email : req.body.email
     }
-    console.log(libro)
+    console.log(escritor)
 
-    EscritorModel.post(libro, (err) => {
+    EscritorModel.post(escritor, (err) => {
         if (err)
         {
             let locals = {
-                title :  `Error al guardar el escritor con el codigo: ${libro.codigolibro}`,
+                title :  `Error al guardar el escritor con el codigo: ${escritor.numeroescritor}`,
                 description : 'Error de Sintaxis SQL',
                 error : err
             }
@@ -88,22 +88,22 @@ EscritorController.post = (req, res, next) => {
 
 
 EscritorController.put = (req, res, next) => {
-    let libro = {
-        codigolibro : req.body.codigolibro,
-        nombrelibro : req.body.nombrelibro,
+    let escritor = {
+        numeroescritor : req.body.numeroescritor,
         nombreescritor : req.body.nombreescritor,
-        fechapublicacion : req.body.fechapublicacion,
-        isbn : req.body.isbn,
-        precio : req.body.precio,
-        editorial : req.body.editorial
+        apellidosescritor : req.body.apellidosescritor,
+        fechanacimiento : req.body.fechanacimiento,
+        nacionalidad : req.body.nacionalidad,
+        cantidadlibrosescritos : req.body.cantidadlibrosescritos,
+        email : req.body.email
     }
-    console.log(libro)
+    console.log(escritor)
 
-    EscritorModel.put(libro, (err) => {
+    EscritorModel.put(escritor, (err) => {
         if (err)
         {
             let locals = {
-                title :  `Error al actualizar el escritor con el codigo: ${libro.codigolibro}`,
+                title :  `Error al actualizar el escritor con el codigo: ${numeroescritor}`,
                 description : 'Error de Sintaxis SQL',
                 error : err
             }
@@ -121,14 +121,14 @@ EscritorController.put = (req, res, next) => {
 
 
 EscritorController.delete = (req, res, next) => {
-    let codigolibro = req.body.codigolibro;
-    console.log(codigolibro)
+    let numeroescritor = req.body.numeroescritor;
+    console.log(numeroescritor)
 
-    EscritorModel.delete(codigolibro, (err) => {
+    EscritorModel.delete(numeroescritor, (err) => {
         if (err)
         {
             let locals = {
-                title :  `Error al eliminar el escritor con el codigo: ${codigolibro}`,
+                title :  `Error al eliminar el escritor con el codigo: ${numeroescritor}`,
                 description : 'Error de Sintaxis SQL',
                 error : err
             }
