@@ -3,6 +3,7 @@
 var  LibroController = require("../controllers/libro-controller"),
      EscritorController = require("../controllers/Escritor-controller"),
      AlquilerController = require("../controllers/Alquiler-controller"),
+     EditorialController = require("../controllers/Editorial-controller"),
   express = require("express"),
   router = express.Router();
 
@@ -31,7 +32,15 @@ router
 .delete("/alquiler/eliminar/:codigolibro", AlquilerController.delete)
 
 
+ //****EDITORIAL EJEMPLO****
+ .get("/editorial/getAll", EditorialController.getAll)
+ .post("/editorial/getone/:numeroeditorial", EditorialController.getOne)
+ .post("/editorial/insertar/numeroeditorial", EditorialController.post)
+ .put("/editorial/actualizar/:numeroeditorial", EditorialController.put)
+ .delete("/editorial/eliminar/:numeroeditorial", EditorialController.delete)
+
  .use(LibroController.error404)
  .use(EscritorController.error404)
  .use(AlquilerController.error404)
+ .use(EditorialController.error404)
 module.exports = router;
