@@ -2,6 +2,7 @@
 //ESTO ES UN EJEMPLO DE LAS RUTAS
 var  LibroController = require("../controllers/libro-controller"),
      EscritorController = require("../controllers/Escritor-controller"),
+     AlquilerController = require("../controllers/Alquiler-controller"),
   express = require("express"),
   router = express.Router();
 
@@ -20,8 +21,17 @@ router
  .post("/escritor/insertar/numeroescritor", EscritorController.post)
  .put("/escritor/actualizar/:numeroescritor", EscritorController.put)
  .delete("/escritor/eliminar/:numeroescritor", EscritorController.delete)
+
+
+ //****ALQUILER EJEMPLO****
+.get("/alquiler/getAll", AlquilerController.getAll)
+.post("/alquiler/getone/:codigolibro", AlquilerController.getOne)
+.post("/alquiler/insertar/codigolibro", AlquilerController.post)
+.put("/alquiler/actualizar/:codigolibro", AlquilerController.put)
+.delete("/alquiler/eliminar/:codigolibro", AlquilerController.delete)
+
+
  .use(LibroController.error404)
  .use(EscritorController.error404)
-
-
+ .use(AlquilerController.error404)
 module.exports = router;

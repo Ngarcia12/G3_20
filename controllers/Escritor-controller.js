@@ -3,7 +3,7 @@
 var EscritorModel = require('../models/Escritor-model'),
 EscritorController = () => {}
 
-LibroController.getAll = (req, res, next) => {
+EscritorController.getAll = (req, res, next) => {
     EscritorModel.getAll((err, rows) => { 
         if (err)
         {
